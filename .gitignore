@@ -1,0 +1,74 @@
+# BrightPath — repository-wide ignore rules.
+# Application-specific rules live in each app's own .gitignore (frontend/.gitignore; the
+# planned backend's Laravel .gitignore). Spec Kit local state is handled by .specify/.gitignore.
+# Note: .gitignore does not untrack files already committed or remove secrets from history.
+
+# --- Environment variables and secrets ---------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Database dumps and backups (plain *.sql is NOT ignored, so Laravel schema dumps stay
+# trackable; keep raw data dumps outside the repository)
+*.dump
+*.sql.gz
+*.bak
+
+# --- Dependencies -----------------------------------------------------------------------
+node_modules/
+vendor/
+
+# --- Build outputs, caches, and test artifacts ------------------------------------------
+# Next.js and TypeScript outputs are covered by frontend/.gitignore.
+coverage/
+
+# --- Claude Code and AI development tools -----------------------------------------------
+# Personal Claude Code settings and instructions (shared .claude/ content stays tracked)
+**/.claude/settings.local.json
+CLAUDE.local.md
+
+# Taste Skill run state (build markers, history, headless-Chrome profiles); may be created
+# at the root or in an app folder. Reasoned gate waivers stay eligible for review.
+**/.taste-skill/*
+!**/.taste-skill/waivers.json
+
+# Impeccable personal config. Shared .impeccable/ files must stay tracked; its runtime
+# directories ignore themselves.
+**/.impeccable/config.local.json
+
+# --- Operating system files -------------------------------------------------------------
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+# macOS
+.DS_Store
+.AppleDouble
+._*
+.Spotlight-V100
+.Trashes
+
+# --- Editors and local workspaces -------------------------------------------------------
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.fleet/
+.zed/
+*.code-workspace
+*.swp
+*.swo
+*~
+
+# --- Logs, temporary files, and diagnostics ---------------------------------------------
+*.log
+*.tmp
+*.temp
+*.stackdump
+*.heapsnapshot
+*.cpuprofile
