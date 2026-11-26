@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">BrightPath owl scholar logo</title>
+  <desc id="desc">An original friendly golden owl wearing a navy graduation cap, perched on an open blue book.</desc>
+  <g stroke="#14264B" stroke-width="12" stroke-linejoin="round" stroke-linecap="round">
+    <!-- open book -->
+    <path d="M104 389 Q174 369 256 397 Q338 369 408 389 L408 435 Q329 420 256 447 Q183 420 104 435 Z" fill="#2D9EEA"/>
+    <path d="M256 397 V447" fill="none"/>
+    <path d="M123 405 Q184 394 238 413 M274 413 Q328 394 389 405" fill="none" stroke="#B7E9FF" stroke-width="7"/>
+    <!-- owl silhouette and ears -->
+    <path d="M161 209 L157 151 L209 174 Q256 158 303 174 L355 151 L351 209 Q372 242 367 301 Q365 371 312 399 Q284 412 256 410 Q228 412 200 399 Q147 371 145 301 Q140 242 161 209Z" fill="#FFC83D"/>
+    <!-- wing accents -->
+    <path d="M154 293 Q175 312 184 365" fill="none" stroke="#ECA521" stroke-width="12"/>
+    <path d="M358 293 Q337 312 328 365" fill="none" stroke="#ECA521" stroke-width="12"/>
+    <!-- facial patches -->
+    <path d="M176 254 Q188 218 226 224 Q252 226 256 251 Q260 226 286 224 Q324 218 336 254 Q343 293 310 320 Q278 339 256 309 Q234 339 202 320 Q169 293 176 254Z" fill="#FFF2B6" stroke-width="9"/>
+    <!-- eyes -->
+    <circle cx="218" cy="270" r="22" fill="#FFFFFF" stroke-width="8"/>
+    <circle cx="294" cy="270" r="22" fill="#FFFFFF" stroke-width="8"/>
+    <circle cx="224" cy="271" r="9" fill="#14264B" stroke="none"/>
+    <circle cx="288" cy="271" r="9" fill="#14264B" stroke="none"/>
+    <circle cx="228" cy="267" r="3.5" fill="#FFFFFF" stroke="none"/>
+    <circle cx="292" cy="267" r="3.5" fill="#FFFFFF" stroke="none"/>
+    <!-- beak -->
+    <path d="M243 304 L269 304 L256 324Z" fill="#F28C28" stroke-width="7"/>
+    <!-- belly feather -->
+    <path d="M219 347 Q256 368 293 347" fill="none" stroke="#ECA521" stroke-width="8"/>
+    <!-- mortarboard cap -->
+    <path d="M256 89 L384 136 L256 182 L128 136 Z" fill="#16396C"/>
+    <path d="M183 159 V197 Q256 225 329 197 V159" fill="#2465A6"/>
+    <path d="M256 89 L384 136 L256 182 L128 136 Z" fill="none"/>
+    <path d="M383 139 V219" fill="none" stroke-width="9"/>
+    <path d="M371 220 Q383 204 395 220 L400 252 L366 252Z" fill="#FFCB3F" stroke-width="8"/>
+    <!-- cap button -->
+    <circle cx="256" cy="135" r="8" fill="#FFC83D" stroke-width="5"/>
+  </g>
+</svg>

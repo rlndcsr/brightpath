@@ -1,26 +1,160 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-hanken);
+  --font-serif: var(--font-newsreader);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --color-navy: #1b2550;
+  --color-navy-soft: #2b3768;
+  --color-ink: #44526e;
+  --color-muted: #6f87a5;
+  --color-sky: #8fd3f4;
+  --color-sky-pale: #d6effb;
+  --color-cream: #fbf6e6;
+  --color-paper: #fbfcfe;
+  --color-mint: #27be91;
+  --color-mint-soft: #a6e8cf;
+  --color-peach: #ff9a48;
+  --color-peach-soft: #ffcf9f;
+  --color-lavender: #a78bfa;
+  --color-lavender-soft: #d6cafd;
+  --color-sun: #f6c453;
+  --color-sun-soft: #fbe3a6;
+  --color-rose: #ef5f78;
+}
+
+html {
+  scroll-padding-top: 96px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-paper);
+  color: var(--color-navy);
+}
+
+/* Sky background shared by the hero and page headers */
+.sky {
+  background:
+    linear-gradient(180deg, #8ed3f5 0%, #b3e2f8 34%, #d9f0fb 66%, #f4f6ea 88%, var(--color-cream) 100%);
+}
+
+/* Fine grain, kept on the sky layer only (never over photographs) */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Pill buttons: hover/press values from the Taste Skill motion layer */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0 1.5rem;
+  border-radius: 9999px;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition:
+    background-color 150ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 150ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 90ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.btn-primary {
+  background: var(--color-navy);
+  color: #fff;
+}
+.btn-secondary {
+  position: relative;
+  background: #fff;
+  color: var(--color-navy);
+  box-shadow: 0 1px 2px rgb(27 37 80 / 0.08), 0 4px 14px rgb(27 37 80 / 0.06);
+}
+.btn .arrow {
+  transition: transform 150ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover {
+    background: color-mix(in oklab, var(--color-navy) 84%, #fff);
+    transform: translateY(-1px);
+  }
+  .btn-secondary:hover {
+    background: color-mix(in oklab, #fff 92%, var(--color-navy));
+    transform: translateY(-1px);
+  }
+  .btn:hover .arrow {
+    transform: translateX(3px);
+  }
+}
+.btn:active {
+  transform: translateY(1px) scale(0.985);
+}
+
+/* Overlapping pill pair, as in the reference */
+.pill-pair {
+  display: inline-flex;
+  align-items: center;
+}
+.pill-pair > .btn-secondary {
+  margin-left: -14px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  z-index: 60;
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  clip-path: none;
+  width: auto;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 24px;
+  background: var(--color-paper);
+  border: 1px solid var(--color-navy);
+  border-radius: 9999px;
+  font-weight: 500;
+}
+
+/* Hero entrance: text rises once on load; portraits settle without fading */
+@media (prefers-reduced-motion: no-preference) {
+  .rise {
+    animation: rise 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--d, 0ms);
+  }
+  .settle {
+    animation: settle 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    transform-origin: bottom center;
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+@keyframes settle {
+  from {
+    scale: 0.98;
+  }
 }
